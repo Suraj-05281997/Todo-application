@@ -104,7 +104,7 @@ app.get("/todos/:todoId/", async (request, response) => {
     WHERE
        id = ${todoId};`;
   const todo = await database.get(getTodoQuery);
-  reponse.send(todo);
+  response.send(todo);
 });
 
 app.post("/todos/", async (request, response) => {
@@ -168,7 +168,7 @@ app.delete("/todos/:todoId/", async (request, response) => {
     DELETE FROM
        todo
     WHERE
-       id = ${todo};`;
+       id = ${todoId};`;
 
   await database.run(deleteTodoQuery);
   response.send("Todo Deleted");
