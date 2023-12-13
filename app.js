@@ -133,7 +133,7 @@ app.put("/todos/:todoId/", async (request, response) => {
       updateColumn = "Todo";
       break;
   }
-  const previouTodoQuery = `
+  const previousTodoQuery = `
     SELECT
       *
     FROM
@@ -143,7 +143,7 @@ app.put("/todos/:todoId/", async (request, response) => {
   const previousTodo = await database.get(previousTodoQuery);
 
   const {
-    todo = previouTodoQuery.todo,
+    todo = previousTodoQuery.todo,
     priority = previousTodo.priority,
     status = previousTodo.status,
   } = request.body;
